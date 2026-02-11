@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 @font-face {
   font-family: 'Telegraf';
-  src: url('fonts/Telegraf-Regular.woff2') format('woff2'),
-       url('fonts/Telegraf-Regular.woff') format('woff');
+  src: local('Telegraf');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /* === RESET === */
@@ -18,15 +18,23 @@
 body {
   background-color: #0f1112;
   color: #ffffff;
-  font-family: 'Telegraf', sans-serif;
+  font-family: 'Telegraf', 'Montserrat', sans-serif;
   line-height: 1.6;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   font-weight: 200;
 }
 
 html,
 body {
   min-height: 100%;
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 /* === GLOBALS === */
@@ -56,8 +64,9 @@ a:hover {
 
 .skip-link {
   position: absolute;
-  left: -9999px;
+  left: 12px;
   top: 0;
+  transform: translateY(-180%);
   background: #0f1112;
   color: #ffffff;
   border: 2px solid #7bd389;
@@ -67,8 +76,8 @@ a:hover {
 
 .skip-link:focus,
 .skip-link:focus-visible {
-  left: 12px;
   top: 12px;
+  transform: translateY(0);
 }
 
 a:focus-visible,
