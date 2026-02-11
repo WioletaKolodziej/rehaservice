@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const runOnNextFrame =
+    typeof window.requestAnimationFrame === 'function'
+      ? window.requestAnimationFrame.bind(window)
+      : (callback) => window.setTimeout(callback, 16);
 
   const heroTargets = [
     '.hero-left img',
@@ -20,10 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     { root: '#details', items: ['h3', 'p'] },
   ];
 
-  if (prefersReducedMotion) {
-    return;
-  }
-
   body.classList.add('has-animations');
 
   heroTargets.forEach((selector, index) => {
@@ -34,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     element.style.setProperty('--intro-delay', `${120 + index * 110}ms`);
   });
 
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
+  runOnNextFrame(() => {
+    runOnNextFrame(() => {
       document.querySelectorAll('.hero-intro').forEach((element) => {
         element.classList.add('hero-in');
       });
@@ -66,7 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const observer = new IntersectionObserver(
+  if (typeof window.IntersectionObserver !== 'function') {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new window.IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
