@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz zgłoszenia serwisowego - RehaService</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script defer src="src/script.js"></script>
+</head>
+
+<body class="form-page">
+    <a class="skip-link" href="#service-form">Przejdź do formularza</a>
+
+    <main class="service-form-page" id="main-content">
+        <section class="service-form-section" aria-labelledby="form-title">
+            <div class="form-intro reveal-on-scroll reveal-text">
+                <a href="index.html#contact" class="back-link">Powrót do strony głównej</a>
+                <h1 id="form-title">Formularz <span class="gradient-text">serwisowy</span></h1>
+                <p>Uzupełnij dane zgłoszenia. Po kliknięciu przycisku program pocztowy otworzy gotową wiadomość do wysłania na service@rehaservice.pl.</p>
+            </div>
+
+            <form class="service-form reveal-on-scroll reveal-card" id="service-form">
+                <div class="form-grid">
+                    <label>
+                        <span>Firma</span>
+                        <input type="text" name="company" autocomplete="organization" required>
+                    </label>
+
+                    <label>
+                        <span>Osoba zgłaszająca</span>
+                        <input type="text" name="person" autocomplete="name" required>
+                    </label>
+
+                    <label>
+                        <span>Producent</span>
+                        <input type="text" name="manufacturer" autocomplete="off">
+                    </label>
+
+                    <label>
+                        <span>Numer seryjny</span>
+                        <input type="text" name="serial" autocomplete="off">
+                    </label>
+
+                    <label>
+                        <span>Preferowana data serwisu</span>
+                        <input type="date" name="serviceDate">
+                    </label>
+
+                    <label>
+                        <span>Kontakt</span>
+                        <input type="text" name="contact" autocomplete="email" required placeholder="Telefon lub email">
+                    </label>
+
+                    <label class="form-field-wide">
+                        <span>Opis problemu</span>
+                        <textarea name="problem" rows="7" required></textarea>
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-secondary" type="submit">Wyślij</button>
+                    <a class="btn-primary" href="index.html#contact">Anuluj</a>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>

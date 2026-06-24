@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { root: '#about', items: ['.about-left img', 'h2', '.about-right > p', '.about-points .point'] },
     { root: '#repairs', items: ['h3[role="heading"]', '.repairs-info > p', '.manufacturers', '.pricing'] },
     { root: '.section-contact', items: ['h2', '.contact-content > p', '.btn-secondary'] },
+    { root: '.service-form-section', items: ['.form-intro', '.service-form'] },
     { root: '#details', items: ['h3', 'p'] },
   ];
 
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       element.classList.add('reveal-on-scroll');
       element.style.setProperty('--reveal-delay', `${index * 90}ms`);
 
-      if (element.matches('.box, .point, .pricing, .inspection-stats > div')) {
+      if (element.matches('.box, .point, .pricing, .service-form, .inspection-stats > div')) {
         element.classList.add('reveal-card');
       } else {
         element.classList.add('reveal-text');
@@ -70,6 +71,44 @@ document.addEventListener('DOMContentLoaded', () => {
       revealElements.push(element);
     });
   });
+
+  const serviceForm = document.querySelector('#service-form');
+  if (serviceForm) {
+    serviceForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(serviceForm);
+      const getValue = (name) => String(formData.get(name) || '').trim() || '-';
+      const company = getValue('company');
+      const person = getValue('person');
+      const manufacturer = getValue('manufacturer');
+      const serial = getValue('serial');
+      const serviceDate = getValue('serviceDate');
+      const contact = getValue('contact');
+      const problem = getValue('problem');
+
+      const subject = `Zgłoszenie serwisowe - ${company}`;
+      const body = [
+        'Dzień dobry,',
+        '',
+        'proszę o kontakt w sprawie zgłoszenia serwisowego.',
+        '',
+        `Firma: ${company}`,
+        `Osoba zgłaszająca: ${person}`,
+        `Kontakt: ${contact}`,
+        `Producent: ${manufacturer}`,
+        `Numer seryjny: ${serial}`,
+        `Preferowana data serwisu: ${serviceDate}`,
+        '',
+        'Opis problemu:',
+        problem,
+        '',
+        'Pozdrawiam',
+      ].join('\n');
+
+      window.location.href = `mailto:service@rehaservice.pl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 
   if (typeof window.IntersectionObserver !== 'function') {
     revealElements.forEach((element) => element.classList.add('is-visible'));

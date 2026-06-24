@@ -88,6 +88,12 @@ button:focus-visible,
   text-decoration: none;
 }
 
+button,
+input,
+textarea {
+  font: inherit;
+}
+
 .subtitle{
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -601,6 +607,15 @@ footer {
     gap: 6px 12px;
     line-height: 1.35;
   }
+
+  .service-form-section {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .form-intro {
+    max-width: 760px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -620,6 +635,29 @@ footer {
     width: 100%;
     text-align: center;
   }
+
+  .contact-actions,
+  .form-actions {
+    width: 100%;
+  }
+
+  .service-form-section {
+    padding: clamp(24px, 5vh, 40px) 5%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-form {
+    padding: 20px;
+  }
+
+  .form-actions .btn-primary,
+  .form-actions .btn-secondary {
+    width: 100%;
+  }
+
   .hero {
     height: auto;
     min-height: 100vh;
@@ -679,6 +717,13 @@ footer {
     text-align: left;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
 .contact-video {
   position: absolute;
   top: 0;
@@ -688,6 +733,134 @@ footer {
   object-fit: cover; 
   z-index: -1; 
   opacity: 0.3;
+}
+
+/* === SERVICE FORM === */
+.form-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  background:
+    linear-gradient(rgba(15, 17, 18, 0.78), rgba(15, 17, 18, 0.88)),
+    url("images/bg1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.service-form-page {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.service-form-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(320px, 1.25fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: var(--section-space-y) var(--section-space-x);
+}
+
+.form-intro {
+  max-width: 560px;
+}
+
+.form-intro h1 {
+  margin: 18px 0;
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.form-intro p {
+  color: #d0d0d0;
+  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+}
+
+.back-link {
+  color: #99d9d9;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.service-form {
+  width: 100%;
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid rgba(123, 211, 137, 0.7);
+  border-radius: 2px;
+  background: rgba(24, 26, 28, 0.72);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(10px);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.service-form label {
+  display: grid;
+  gap: 8px;
+}
+
+.service-form label span {
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.service-form input,
+.service-form textarea {
+  width: 100%;
+  border: 1px solid rgba(153, 217, 217, 0.36);
+  border-radius: 2px;
+  background: rgba(15, 17, 18, 0.82);
+  color: #ffffff;
+  padding: 13px 14px;
+  outline: none;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
+}
+
+.service-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.service-form input:focus,
+.service-form textarea:focus {
+  border-color: #7bd389;
+  background: rgba(15, 17, 18, 0.96);
+  box-shadow: 0 0 0 3px rgba(123, 211, 137, 0.16);
+}
+
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.form-actions button {
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  color: #0f1112;
 }
 
 @keyframes heroGlowDrift {
