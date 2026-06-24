@@ -58,6 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
       element.classList.add('reveal-on-scroll');
       element.style.setProperty('--reveal-delay', `${index * 90}ms`);
 
+      if (element.matches('.box, .point, .pricing, .inspection-stats > div')) {
+        element.classList.add('reveal-card');
+      } else {
+        element.classList.add('reveal-text');
+      }
+
       if (index % 3 === 1) element.classList.add('reveal-left');
       if (index % 3 === 2) element.classList.add('reveal-right');
 
