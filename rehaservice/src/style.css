@@ -736,22 +736,6 @@ footer {
 }
 
 /* === SERVICE FORM === */
-.form-page {
-  min-height: 100vh;
-  min-height: 100svh;
-  background:
-    linear-gradient(rgba(15, 17, 18, 0.78), rgba(15, 17, 18, 0.88)),
-    url("images/bg1.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.service-form-page {
-  min-height: 100vh;
-  min-height: 100svh;
-}
-
 .service-form-section {
   display: grid;
   grid-template-columns: minmax(0, 0.75fr) minmax(320px, 1.25fr);
@@ -760,13 +744,21 @@ footer {
   min-height: 100vh;
   min-height: 100svh;
   padding: var(--section-space-y) var(--section-space-x);
+  scroll-margin-top: 0;
+  background:
+    linear-gradient(rgba(15, 17, 18, 0.78), rgba(15, 17, 18, 0.88)),
+    url("images/bg1.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .form-intro {
   max-width: 560px;
 }
 
-.form-intro h1 {
+.form-intro h1,
+.form-intro h2 {
   margin: 18px 0;
   font-size: clamp(2rem, 5vw, 4.6rem);
   line-height: 1.02;
@@ -776,14 +768,6 @@ footer {
 .form-intro p {
   color: #d0d0d0;
   font-size: clamp(0.95rem, 1.4vw, 1.08rem);
-}
-
-.back-link {
-  color: #99d9d9;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 
 .service-form {

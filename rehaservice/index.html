@@ -149,6 +149,58 @@
             <p>Przegląd techniczny z konserwacją – cena po konsultacji z serwisem.</p>
         </div>
     </section>
+
+    <!-- === FORMULARZ SERWISOWY === -->
+    <section id="formularz" class="service-form-section" aria-labelledby="form-title">
+        <div class="form-intro">
+            <h2 id="form-title">Formularz <span class="gradient-text">serwisowy</span></h2>
+            <p>Uzupełnij dane zgłoszenia. Po kliknięciu przycisku program pocztowy otworzy gotową wiadomość do wysłania na service@rehaservice.pl.</p>
+        </div>
+
+        <form class="service-form" id="service-form">
+            <div class="form-grid">
+                <label>
+                    <span>Firma</span>
+                    <input type="text" name="company" autocomplete="organization" required>
+                </label>
+
+                <label>
+                    <span>Osoba zgłaszająca</span>
+                    <input type="text" name="person" autocomplete="name" required>
+                </label>
+
+                <label>
+                    <span>Producent</span>
+                    <input type="text" name="manufacturer" autocomplete="off">
+                </label>
+
+                <label>
+                    <span>Numer seryjny</span>
+                    <input type="text" name="serial" autocomplete="off">
+                </label>
+
+                <label>
+                    <span>Preferowana data serwisu</span>
+                    <input type="date" name="serviceDate">
+                </label>
+
+                <label>
+                    <span>Kontakt</span>
+                    <input type="text" name="contact" autocomplete="email" required placeholder="Telefon lub email">
+                </label>
+
+                <label class="form-field-wide">
+                    <span>Opis problemu</span>
+                    <textarea name="problem" rows="7" required></textarea>
+                </label>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn-secondary" type="submit">Wyślij</button>
+                <a class="btn-primary" href="#contact">Anuluj</a>
+            </div>
+        </form>
+    </section>
     </main>
 
     <!-- === KONTAKT === -->
@@ -166,7 +218,7 @@
                 </p>
                 <div class="contact-actions">
                     <a href="mailto:service@rehaservice.pl" class="btn-secondary">Wyślij zapytanie</a>
-                    <a href="./formularz.html" class="btn-secondary">Wyślij formularz</a>
+                    <a href="#formularz" class="btn-secondary">Wyślij formularz</a>
                 </div>
             </div>
         </section>
