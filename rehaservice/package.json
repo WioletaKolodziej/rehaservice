@@ -1,0 +1,9 @@
+{
+  "name": "rehaservice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statyczna strona RehaService.",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}
