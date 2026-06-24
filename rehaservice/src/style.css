@@ -136,6 +136,8 @@ footer {
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
     url("images/bg1.webp");
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .section-contact{
@@ -413,12 +415,18 @@ border: 1px solid #99d9d9;
 }
 
 .about-left {
-  flex: 1 1 45%;
+  flex: 1 1 min(45%, 520px);
+  min-width: min(100%, 320px);
+  overflow: hidden;
+  border-radius: 2px;
 }
 
 .about-left img {
   width: 100%;
-  border-radius: 2px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
 }
 
 .about-right {
@@ -641,6 +649,16 @@ footer {
   .section-repairs,
   .section-contact {
     padding: clamp(24px, 5vh, 40px) 5%;
+  }
+
+  .section-features,
+  .section-repairs {
+    background-position: center top;
+  }
+
+  .about-left {
+    flex-basis: 100%;
+    min-width: 0;
   }
 }
 
