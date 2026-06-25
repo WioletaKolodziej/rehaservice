@@ -4,7 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RehaService - Serwis i przeglądy sprzętu rehabilitacyjnego</title>
+    <title>RehaService | Serwis i przeglądy sprzętu rehabilitacyjnego</title>
+    <meta name="description"
+        content="RehaService wykonuje serwis, naprawy i przeglądy techniczne sprzętu rehabilitacyjnego zgodnie z IEC 62353 w Polsce i za granicą.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Reha Service sp. z o.o.">
+    <meta name="theme-color" content="#0e7490">
+    <link rel="canonical" href="https://rehaservice.pl/">
+    <link rel="alternate" hreflang="pl-PL" href="https://rehaservice.pl/">
+    <link rel="alternate" hreflang="x-default" href="https://rehaservice.pl/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="RehaService">
+    <meta property="og:title" content="RehaService | Serwis i przeglądy sprzętu rehabilitacyjnego">
+    <meta property="og:description"
+        content="Serwis, naprawy i przeglądy techniczne sprzętu rehabilitacyjnego zgodnie z IEC 62353 w Polsce i za granicą.">
+    <meta property="og:url" content="https://rehaservice.pl/">
+    <meta property="og:image" content="https://rehaservice.pl/src/images/logo.png">
+    <meta property="og:image:alt" content="Logo RehaService">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RehaService | Serwis i przeglądy sprzętu rehabilitacyjnego">
+    <meta name="twitter:description"
+        content="Serwis, naprawy i przeglądy techniczne sprzętu rehabilitacyjnego zgodnie z IEC 62353 w Polsce i za granicą.">
+    <meta name="twitter:image" content="https://rehaservice.pl/src/images/logo.png">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": "https://rehaservice.pl/#organization",
+                    "name": "RehaService",
+                    "legalName": "Reha Service sp. z o.o.",
+                    "url": "https://rehaservice.pl/",
+                    "logo": "https://rehaservice.pl/src/images/logo.png",
+                    "email": "service@rehaservice.pl",
+                    "telephone": [
+                        "+48 881 204 666",
+                        "+48 601 490 085"
+                    ],
+                    "taxID": "9492274310"
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": "https://rehaservice.pl/#website",
+                    "url": "https://rehaservice.pl/",
+                    "name": "RehaService",
+                    "inLanguage": "pl-PL",
+                    "publisher": {
+                        "@id": "https://rehaservice.pl/#organization"
+                    }
+                },
+                {
+                    "@type": "Service",
+                    "@id": "https://rehaservice.pl/#service",
+                    "name": "Serwis i przeglady sprzetu rehabilitacyjnego",
+                    "serviceType": "Serwis, naprawy i przeglady techniczne sprzetu rehabilitacyjnego",
+                    "provider": {
+                        "@id": "https://rehaservice.pl/#organization"
+                    },
+                    "areaServed": [
+                        "PL",
+                        "DE",
+                        "AT",
+                        "US"
+                    ]
+                }
+            ]
+        }
+    </script>
     <link rel="stylesheet" href="src/style.css">
     <script defer src="src/script.js"></script>
 </head>
@@ -15,7 +83,8 @@
     <!-- === HERO SECTION === -->
     <header class="hero" role="banner">
         <div class="hero-left">
-            <img src="src/images/hero-prosthesis.png" alt="Serwis sprzętu rehabilitacyjnego">
+            <img src="src/images/hero-prosthesis.png" alt="Serwis sprzętu rehabilitacyjnego" loading="eager"
+                fetchpriority="high">
         </div>
         <div class="hero-right">
             <div class="contact-info" aria-label="Dane kontaktowe">
@@ -27,11 +96,13 @@
             </div>
 
             <div class="logo">
-                <img src="src/images/logo.png" alt="RehaService logo">
+                <img src="src/images/logo.png" alt="RehaService logo" decoding="async">
             </div>
 
-            <h1>SERWIS I <span class="gradient-text">PRZEGLĄDY</span></h1>
-            <p class="subtitle">sprzętu rehabilitacyjnego w Polsce i na świecie</p>
+            <div class="hero-heading">
+                <h1>SERWIS I <span class="gradient-text">PRZEGLĄDY</span></h1>
+                <p class="subtitle">sprzętu rehabilitacyjnego w Polsce i na świecie</p>
+            </div>
 
             <a href="#contact" class="btn-primary">Skontaktuj się z nami</a>
         </div>
@@ -94,7 +165,8 @@
     <!-- === O NAS === -->
     <section id="about" class="section-about" aria-labelledby="about-title">
         <div class="about-left">
-            <img src="src/images/about-photo.jpg" alt="Badanie sprzętu rehabilitacyjnego">
+            <img src="src/images/about-photo.jpg" alt="Badanie sprzętu rehabilitacyjnego" loading="lazy"
+                decoding="async">
         </div>
         <div class="about-right">
             <h2 id="about-title">O NAS</h2>
@@ -170,12 +242,12 @@
                 </label>
 
                 <label>
-                    <span>Producent</span>
+                    <span>Producent sprzętu</span>
                     <input type="text" name="manufacturer" autocomplete="off">
                 </label>
 
                 <label>
-                    <span>Numer seryjny</span>
+                    <span>Numer seryjny sprzętu</span>
                     <input type="text" name="serial" autocomplete="off">
                 </label>
 
